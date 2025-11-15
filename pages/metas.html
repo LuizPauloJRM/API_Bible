@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Metas - Leitor Bíblico</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <link href="../styles/cssMetas.css rel=" stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="header-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1><i class="bi bi-trophy"></i> Minhas Metas</h1>
+                    <p class="text-muted mb-0">Acompanhe seu progresso e conquistas</p>
+                </div>
+                <button class="btn btn-primary" onclick="voltarParaPrincipal()">
+                    <i class="bi bi-arrow-left"></i> Voltar
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stat-box">
+                    <i class="bi bi-calendar-check" style="font-size: 2rem;"></i>
+                    <h3 id="totalCapitulos">0</h3>
+                    <p class="mb-0">Total de Capítulos</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-box" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <i class="bi bi-fire" style="font-size: 2rem;"></i>
+                    <h3 id="sequenciaAtual">0</h3>
+                    <p class="mb-0">Dias Seguidos</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-box" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <i class="bi bi-graph-up" style="font-size: 2rem;"></i>
+                    <h3 id="mediaCapitulos">0</h3>
+                    <p class="mb-0">Média Diária</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-custom">
+            <h4><i class="bi bi-gear"></i> Configurar Meta Diária</h4>
+            <form id="formMeta" class="mt-3">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-8">
+                        <label class="form-label">Quantos capítulos você quer ler por dia?</label>
+                        <select id="selectMeta" class="form-select">
+                            <option value="1">1 capítulo por dia</option>
+                            <option value="2">2 capítulos por dia</option>
+                            <option value="3" selected>3 capítulos por dia</option>
+                            <option value="5">5 capítulos por dia</option>
+                            <option value="7">7 capítulos por dia</option>
+                            <option value="10">10 capítulos por dia</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-check-circle"></i> Salvar Meta
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="mt-3">
+                <small class="text-muted">
+                    <i class="bi bi-info-circle"></i> Dica: Comece com uma meta realista e aumente gradualmente!
+                </small>
+            </div>
+        </div>
+
+        <div class="card-custom">
+            <h4><i class="bi bi-award"></i> Conquistas</h4>
+            <div class="row mt-3" id="conquistasArea">
+            </div>
+        </div>
+
+        <div class="card-custom">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4><i class="bi bi-clock-history"></i> Histórico de Leitura</h4>
+                <button class="btn btn-sm btn-outline-danger" onclick="limparHistorico()">
+                    <i class="bi bi-trash"></i> Limpar Histórico
+                </button>
+            </div>
+            <div id="historicoArea">
+                <p class="text-muted">Nenhuma leitura registrada ainda.</p>
+            </div>
+        </div>
+
+        <div class="card-custom">
+            <h4><i class="bi bi-bar-chart"></i> Estatísticas Detalhadas</h4>
+            <div class="mt-3">
+                <div class="mb-3">
+                    <label class="form-label">Meta Atual:</label>
+                    <div class="progress" style="height: 30px;">
+                        <div id="progressoGeral" class="progress-bar bg-success" style="width: 0%">0%</div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <p><strong>Primeira leitura:</strong> <span id="primeiraLeitura">-</span></p>
+                        <p><strong>Última leitura:</strong> <span id="ultimaLeituraData">-</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Capítulo mais lido:</strong> <span id="capituloFavorito">-</span></p>
+                        <p><strong>Melhor sequência:</strong> <span id="melhorSequencia">0 dias</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../javaScript/scriptMetas.js"></script>
+</body>
+
+</html>
